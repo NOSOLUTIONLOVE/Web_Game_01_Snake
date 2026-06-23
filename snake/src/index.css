@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * 全局样式 - 通过 data-theme 属性切换三套主题
+ * 主题：dark（暗黑紫）/ neon（霓虹绿）/ classic（经典黑白）
+ */
+
+@layer base {
+  :root,
+  [data-theme='dark'] {
+    color-scheme: dark;
+    /* 暗黑紫（默认主题） */
+    --background: hsl(240 10% 3.9%);
+    --foreground: hsl(0 0% 98%);
+    --card: hsl(240 10% 3.9%);
+    --card-foreground: hsl(0 0% 98%);
+    --popover: hsl(240 10% 3.9%);
+    --popover-foreground: hsl(0 0% 98%);
+    --primary: hsl(263 70% 50%);
+    --primary-foreground: hsl(0 0% 98%);
+    --secondary: hsl(240 3.7% 15.9%);
+    --secondary-foreground: hsl(0 0% 98%);
+    --muted: hsl(240 3.7% 15.9%);
+    --muted-foreground: hsl(240 5% 64.9%);
+    --accent: hsl(173 80% 40%);
+    --accent-foreground: hsl(0 0% 98%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(240 3.7% 15.9%);
+    --input: hsl(240 3.7% 15.9%);
+    --ring: hsl(263 70% 50%);
+  }
+
+  [data-theme='neon'] {
+    color-scheme: dark;
+    /* 霓虹绿 */
+    --background: hsl(280 50% 5%);
+    --foreground: hsl(180 100% 90%);
+    --card: hsl(280 50% 5%);
+    --card-foreground: hsl(180 100% 90%);
+    --popover: hsl(280 50% 5%);
+    --popover-foreground: hsl(180 100% 90%);
+    --primary: hsl(180 100% 50%);
+    --primary-foreground: hsl(280 50% 5%);
+    --secondary: hsl(280 30% 15%);
+    --secondary-foreground: hsl(180 100% 90%);
+    --muted: hsl(280 30% 15%);
+    --muted-foreground: hsl(180 50% 70%);
+    --accent: hsl(300 100% 60%);
+    --accent-foreground: hsl(280 50% 5%);
+    --destructive: hsl(0 80% 50%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(280 30% 15%);
+    --input: hsl(280 30% 15%);
+    --ring: hsl(180 100% 50%);
+  }
+
+  [data-theme='classic'] {
+    color-scheme: dark;
+    /* 经典黑白 */
+    --background: hsl(0 0% 0%);
+    --foreground: hsl(0 0% 100%);
+    --card: hsl(0 0% 0%);
+    --card-foreground: hsl(0 0% 100%);
+    --popover: hsl(0 0% 0%);
+    --popover-foreground: hsl(0 0% 100%);
+    --primary: hsl(0 0% 80%);
+    --primary-foreground: hsl(0 0% 0%);
+    --secondary: hsl(0 0% 20%);
+    --secondary-foreground: hsl(0 0% 100%);
+    --muted: hsl(0 0% 20%);
+    --muted-foreground: hsl(0 0% 60%);
+    --accent: hsl(0 0% 60%);
+    --accent-foreground: hsl(0 0% 0%);
+    --destructive: hsl(0 60% 40%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(0 0% 20%);
+    --input: hsl(0 0% 20%);
+    --ring: hsl(0 0% 80%);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  /* 毛玻璃效果 */
+  .glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+
+  /* 文字发光 */
+  .text-glow {
+    text-shadow: 0 0 12px currentColor;
+  }
+}
